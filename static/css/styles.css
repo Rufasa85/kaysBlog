@@ -1,4 +1,24 @@
+* {
+	margin:0;
+	padding:0;
+}
+
 body {
-	background: salmon;
-	
+	background: salmon;	
+	color:yellow;
+}
+
+.navbarLink {
+	display:inline-block;
+}
+
+#navbar {
+	position: fixed;
+	display:flex;
+	justify-content:space-around;
+	align-items:center;
+	height:10vh;
+	background-color: black;
+	width: 100%;
+
 }
