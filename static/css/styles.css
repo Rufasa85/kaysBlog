@@ -13,9 +13,11 @@ body {
 }
 
 .blogWell {
-	width: 80%;
+	width: 90%;
 	margin:10px auto;
 	background: darkblue;
+	border-radius: 10px;
+	min-height: 500px;
 }
 
 .blogImg {
