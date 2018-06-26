@@ -17,7 +17,9 @@ cloudinary.config({
 })
 
 app.get('/', function(req, res) {
-	res.render('index')
+	db.post.findAll().then(function(posts){
+		res.render('index', {posts:posts})
+	});
 });
 
 app.get('/new',function(req,res) {

@@ -1,22 +1,17 @@
 <%include partials/header.ejs %>
 <div id ='headerSpacer'></div>
 <h1>This is kays blog</h1>
-<div class='blogWell'>
-	<h3 class= 'blogTitle'>Title 1</h3>
-	<h5 class='blogDate'> 01/01/2019</h5>
-	<img class = blogImg src="https://images.pexels.com/photos/459688/pexels-photo-459688.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-	<img class = blogImg src="https://images.pexels.com/photos/265667/pexels-photo-265667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-	<p class = 'blogBody'>Sustainable shaman artisan intelligentsia chia pork belly chambray food truck taiyaki, try-hard kickstarter gochujang +1. Kickstarter single-origin coffee kitsch locavore next level iPhone tousled lumbersexual. Freegan put a bird on it master cleanse, tote bag cloud bread locavore distillery crucifix brooklyn hoodie gluten-free. Succulents tousled man bun, sriracha you probably haven't heard of them flexitarian ethical la croix. Swag franzen health goth, waistcoat distillery asymmetrical semiotics.
-
-Humblebrag brunch cloud bread 3 wolf moon. Tote bag everyday carry yuccie skateboard woke, listicle meggings knausgaard stumptown fixie hell of keytar XOXO etsy. Green juice swag iPhone sustainable bicycle rights, austin chicharrones. Messenger bag activated charcoal blog, kogi heirloom typewriter fashion axe.
-
-Prism kickstarter taxidermy live-edge green juice crucifix unicorn deep v vexillologist jianbing cloud bread skateboard yr before they sold out fanny pack. Farm-to-table try-hard XOXO, pop-up brunch whatever raw denim stumptown. Everyday carry tilde plaid portland small batch pok pok. Tote bag VHS chicharrones mixtape shoreditch listicle distillery poutine franzen synth pickled.</p>		
-</div>
-<div class='blogWell'>
-	<h3 class= 'blogTitle'>Title 2</h3>
-	<h5 class='blogDate'> 01/01/2019</h5>
-	<p class = 'blogBody'>Chambray cloud bread meh af gastropub, mustache bespoke palo santo plaid tousled vice unicorn. Enamel pin banjo raw denim scenester, YOLO celiac vape irony artisan neutra bicycle rights. Cronut man bun viral chambray, hot chicken health goth XOXO paleo direct trade mumblecore cold-pressed semiotics twee cray celiac. Irony truffaut intelligentsia DIY sustainable. Master cleanse asymmetrical authentic fixie palo santo offal celiac deep v meh chartreuse YOLO. Distillery hexagon raclette food truck, tofu pop-up stumptown bushwick yr franzen marfa put a bird on it farm-to-table. Semiotics gentrify aesthetic iPhone gochujang.
-
-Irony affogato wayfarers art party succulents, humblebrag +1 chambray etsy you probably haven't heard of them blue bottle whatever mlkshk pitchfork. Adaptogen brunch craft beer waistcoat hella viral mlkshk authentic letterpress. Squid palo santo poutine, VHS retro godard drinking vinegar master cleanse. Kombucha heirloom poke bitters everyday carry direct trade, butcher bushwick tilde man bun chartreuse keytar drinking vinegar iceland. Fashion axe banjo brunch, lo-fi deep v raclette synth you probably haven't heard of them four dollar toast tacos literally cray flexitarian venmo. Butcher health goth four loko bespoke, hell of chia brooklyn offal pinterest wayfarers. Typewriter ramps neutra craft beer four dollar toast humblebrag sartorial, cornhole messenger bag occupy freegan twee gastropub iPhone.</p>		
-</div>
+<%posts.forEach(function(post) {%>
+	<div class='blogWell'>
+		<h3 class = 'blogTitle'><%=post.title%></h3>
+		<h5 class = 'blogDate'><%= post.date %></h5>
+		<p class = 'blogBody'><%= post.post %></p>
+		<% if (post.picone) {%>
+			<img src='' + <%= post.picone%> class='blogImg' />
+		<% } %>
+		<% if (post.pictwo) {%>
+			<img src='' + <%= post.pictwo%> class='blogImg' />
+		<% } %>
+	</div>
+<%})%>
 <%include partials/footer.ejs %>
