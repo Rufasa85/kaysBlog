@@ -3,7 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./models')
 const cloudinary = require('cloudinary');
-const apiKeys = require('./static/js/apikeys.js');
+const apiKeys = require('./apikeys.js');
+const multer = require('multer');
+const uploads = multer({dest:'./uploads'});
 
 app.set('view engine', 'ejs');
 
@@ -20,25 +22,49 @@ app.get('/', function(req, res) {
 	db.post.findAll().then(function(posts){
 		res.render('index', {posts:posts})
 	});
+	// res.send(apiKeys);
 });
 
 app.get('/new',function(req,res) {
 	res.render('new')
 });
 
-app.post('/', function(req,res) {
-	// if (req.body.picone) {
-	// 	cloudinary.uploader.upload
-	// }
-	db.post.create({
-		title:req.body.title,
-		post:req.body.body,
-		picone:req.body.picOne,
-		pictwo:req.body.picTwo,
-		date:new Date()
-	}).then(function(post) {
-		res.send(post);
-	})
+app.post('/', uploads.fields([
+	{
+		name:'picOne', 
+		maxCount:1
+	},
+	{
+		name:'picTwo',
+		maxCount:1
+	}]),
+	function(req,res) {
+	let picOne = null;
+	if (req.files.picOne) {
+		cloudinary.uploader.upload(req.files.picOne[0]['path'], function (result) {
+			console.log(result.url);
+			picOne=result.url;
+			db.post.create({
+				title:req.body.title,
+				post:req.body.body,
+				picone:picOne,
+				pictwo:req.body.picTwo,
+				date:new Date()
+			}).then(function(post) {
+			res.redirect('/');
+			})
+		});
+	} else {
+		db.post.create({
+			title:req.body.title,
+			post:req.body.body,
+			picone:picOne,
+			pictwo:req.body.picTwo,
+			date:new Date()
+		}).then(function(post) {
+			res.send(post);
+		})
+	}
 	// res.send(req.body);
 })
 

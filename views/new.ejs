@@ -1,14 +1,14 @@
 <h1>this is the new page</h1>
 
 <div class = 'newEditWell' >
-	<form method="post" id='newForm' action="/">
+	<form method="post" id='newForm' action="/" enctype="multipart/form-data">
 		<input type="text" name="title" placeholder="title"/>
 		<br/>
 		<textarea form ="newForm" rows="4" cols="50" name="body" placeholder="body"></textarea>
 		<br/>
-		<span>Pic 1:</span><input type="file" name="picOne"/>
+		<span>Pic 1:</span><input type="file" name="picOne" id = 'picOne' accept='image/*'/>
 		<br/>
-		<span>Pic 2:</span><input type="file" name="picTwo" />
+		<span>Pic 2:</span><input type="file" name="picTwo" id = 'picTwo' accept='image/*'/>
 		<br/>
 		<input type="submit" name="submit"/>
 	</form>
