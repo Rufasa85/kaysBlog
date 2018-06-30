@@ -29,6 +29,13 @@ app.get('/new',function(req,res) {
 	res.render('new')
 });
 
+app.get('/:id', function (req, res) {
+	db.post.find({where: {id:req.params.id}}).then(function(post) {	
+		res.render('edit', {post:post});
+		// res.send(post);
+	})
+});
+
 app.post('/', uploads.fields([
 	{
 		name:'picOne', 
@@ -62,10 +69,33 @@ app.post('/', uploads.fields([
 			pictwo:req.body.picTwo,
 			date:new Date()
 		}).then(function(post) {
-			res.send(post);
+			res.redirect('/');
 		})
 	}
 	// res.send(req.body);
-})
+});
+
+app.put('/:id', uploads.fields([
+	{
+		name:'picOne', 
+		maxCount:1
+	},
+	{
+		name:'picTwo',
+		maxCount:1
+	}]),
+	function(req,res) {
+		db.post.find({where:{id:req.params.id}}).then(function(post) {
+			console.log(req.body);
+			console.log(post);
+			post.updateAttributes({
+				post:req.body.body,
+				title:req.body.title
+			}).then(function() {
+				res.send('done')
+			})
+		})
+});
+
 
 app.listen(process.env.PORT || 3000);
