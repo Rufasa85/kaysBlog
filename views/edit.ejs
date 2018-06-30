@@ -1,7 +1,7 @@
 <%include partials/header.ejs %>
 <h1> edit page</h1>
 <div class = 'newEditWell' >
-	<form method="post" id='editForm' role='form' action="/edit" enctype="multipart/form-data">
+	<form class='editBtn' method="post" id='editForm' role='form' action="/<%= post.id %>"" enctype="multipart/form-data">
 		<input type="text" name="title" placeholder="title" value= '<%=post.title  %>'/>
 		<br/>
 		<textarea form ="editForm" rows="4" cols="50" name="body" placeholder="body"><%=post.post  %></textarea>

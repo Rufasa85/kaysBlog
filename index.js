@@ -32,6 +32,7 @@ app.get('/new',function(req,res) {
 app.get('/:id', function (req, res) {
 	db.post.find({where: {id:req.params.id}}).then(function(post) {	
 		res.render('edit', {post:post});
+		// res.send(post);
 	})
 });
 
@@ -74,7 +75,7 @@ app.post('/', uploads.fields([
 	// res.send(req.body);
 });
 
-app.post('/edit', uploads.fields([
+app.put('/:id', uploads.fields([
 	{
 		name:'picOne', 
 		maxCount:1
@@ -84,7 +85,16 @@ app.post('/edit', uploads.fields([
 		maxCount:1
 	}]),
 	function(req,res) {
-		res.send(req.body)
+		db.post.find({where:{id:req.params.id}}).then(function(post) {
+			console.log(req.body);
+			console.log(post);
+			post.updateAttributes({
+				post:req.body.body,
+				title:req.body.title
+			}).then(function() {
+				res.send('done')
+			})
+		})
 });
 
 
