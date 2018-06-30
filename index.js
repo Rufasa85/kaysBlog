@@ -29,6 +29,12 @@ app.get('/new',function(req,res) {
 	res.render('new')
 });
 
+app.get('/:id', function (req, res) {
+	db.post.find({where: {id:req.params.id}}).then(function(post) {	
+		res.render('edit', {post:post});
+	})
+});
+
 app.post('/', uploads.fields([
 	{
 		name:'picOne', 
@@ -62,10 +68,24 @@ app.post('/', uploads.fields([
 			pictwo:req.body.picTwo,
 			date:new Date()
 		}).then(function(post) {
-			res.send(post);
+			res.redirect('/');
 		})
 	}
 	// res.send(req.body);
-})
+});
+
+app.post('/edit', uploads.fields([
+	{
+		name:'picOne', 
+		maxCount:1
+	},
+	{
+		name:'picTwo',
+		maxCount:1
+	}]),
+	function(req,res) {
+		res.send(req.body)
+});
+
 
 app.listen(process.env.PORT || 3000);
