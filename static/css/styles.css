@@ -8,6 +8,12 @@ body {
 	color:yellow;
 }
 
+ ::placeholder{
+ 	color: white;
+ 	opacity:0.75;
+ 	text-align: center;
+ }
+
 .navbarLink {
 	display:inline-block;
 }
@@ -24,6 +30,29 @@ body {
 	float: right;
 	height: 200px;
 	width: 200px;
+}
+
+.newEditWell {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 5px;
+	width: 50%;
+	margin:0 auto;
+	background: blue;
+}
+
+.newFormInput {
+	width:100%;
+	background: transparent;
+	border:none;
+	color:white;
+	border-bottom:2px solid white;
+
+}
+
+.newFormInput:focus {
+	outline:none;
 }
 
 #navbar {
