@@ -3,15 +3,15 @@
 
 <div class = 'newEditWell' >
 	<form method="post" id='newForm' action="/" enctype="multipart/form-data">
-		<input type="text" name="title" placeholder="title"/>
+		<input type="text" class='newFormInput' name="title" placeholder="title"/>
 		<br/>
-		<textarea form ="newForm" rows="4" cols="50" name="body" placeholder="body"></textarea>
+		<textarea form ="newForm" class='newFormInput' rows="4" cols="50" name="body" placeholder="body"></textarea>
 		<br/>
-		<span>Pic 1:</span><input type="file" name="picOne" id = 'picOne' accept='image/*'/>
+		<span>Pic 1:</span><input class='newFormInput' type="file" name="picOne" id = 'picOne' accept='image/*'/>
 		<br/>
-		<span>Pic 2:</span><input type="file" name="picTwo" id = 'picTwo' accept='image/*'/>
+		<span>Pic 2:</span><input class='newFormInput' type="file" name="picTwo" id = 'picTwo' accept='image/*'/>
 		<br/>
-		<input type="submit" name="submit"/>
+		<input type="submit" class='newFormInput' name="submit"/>
 	</form>
 </div>
 <%include partials/footer.ejs %>
