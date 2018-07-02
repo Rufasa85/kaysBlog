@@ -97,5 +97,13 @@ app.put('/:id', uploads.fields([
 		})
 });
 
+app.delete('/:id', function(req,res) {
+	db.post.find({where:{id:req.params.id}}).then(function(post){
+		db.post.destroy({where:{id:post.id}}).then(function() {
+			res.send('deleted!');
+		})
+	})
+})
+
 
 app.listen(process.env.PORT || 3000);
