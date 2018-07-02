@@ -16,7 +16,18 @@ body {
 
 .navbarLink {
 	display:inline-block;
+	font-size: 2em;
 }
+
+.navbarLink a {
+	color:white;
+	text-decoration: none;
+}
+
+.navbarLink a:hover {
+	text-decoration: underline;
+}
+
 
 .blogWell {
 	width: 90%;
@@ -48,6 +59,7 @@ body {
 	border:none;
 	color:white;
 	border-bottom:2px solid white;
+	font-size: 2em;
 
 }
 
