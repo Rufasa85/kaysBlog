@@ -3,13 +3,8 @@
 	padding:0;
 }
 
-body {
-	background: salmon;	
-	color:yellow;
-}
-
  ::placeholder{
- 	color: white;
+ 	color: black;
  	opacity:0.75;
  	text-align: center;
  }
@@ -20,7 +15,7 @@ body {
 }
 
 .navbarLink a {
-	color:white;
+	color:black;
 	text-decoration: none;
 }
 
@@ -32,9 +27,10 @@ body {
 .blogWell {
 	width: 90%;
 	margin:10px auto;
-	background: darkblue;
+	background: #F2F1EF;
 	border-radius: 10px;
 	min-height: 500px;
+	box-shadow: 2px 2px;
 }
 
 .blogImg {
@@ -50,15 +46,14 @@ body {
 	border-radius: 5px;
 	width: 50%;
 	margin:0 auto;
-	background: blue;
+	background: #F2F1EF;
 }
 
 .newFormInput {
 	width:100%;
 	background: transparent;
 	border:none;
-	color:white;
-	border-bottom:2px solid white;
+	border-bottom:2px solid black;
 	font-size: 2em;
 
 }
@@ -73,7 +68,7 @@ body {
 	justify-content:space-around;
 	align-items:center;
 	height:10vh;
-	background-color: black;
+	background-color: #BDC3C7;
 	width: 100%;
 }
 
