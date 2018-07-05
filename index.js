@@ -6,6 +6,7 @@ const cloudinary = require('cloudinary');
 const apiKeys = require('./apikeys.js');
 const multer = require('multer');
 const uploads = multer({dest:'./uploads'});
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 app.set('view engine', 'ejs');
 
@@ -20,7 +21,7 @@ cloudinary.config({
 
 app.get('/', function(req, res) {
 	db.post.findAll().then(function(posts){
-		res.render('index', {posts:posts})
+		res.render('index', {posts:posts, months:months})
 	});
 	// res.send(apiKeys);
 });

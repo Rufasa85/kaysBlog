@@ -4,7 +4,7 @@
 <%posts.forEach(function(post) {%>
 	<div class='blogWell'>
 		<h3 class = 'blogTitle'><%=post.title%></h3>
-		<h5 class = 'blogDate'><%= post.date %></h5>
+		<h5 class = 'blogDate'><%= months[post.date.getMonth()] %> <%= post.date.getDate() %> <%= post.date.getFullYear()%> <%= post.date.getHours()%>:<%= post.date.getMinutes()%> <%if (post.date.getHours()<12) { %>AM<%}%><%if (post.date.getHours()>11) { %>PM<%}%></h5>
 		<p class = 'blogBody'><%= post.post %></p>
 		<% if (post.picone) {%>
 			<img src='<%= post.picone%>' class='blogImg' />
